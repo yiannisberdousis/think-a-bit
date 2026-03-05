@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="el">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Think-a-bit | STEM Project</title>
+  <meta name="description" content="Think-a-bit: micro:bit STEM project με αισθητήρες, προγραμματισμό και ανατροφοδότηση δεδομένων." />
+  <style>
+    :root{
+      --bg:#0b1220;
+      --card:#111a2e;
+      --muted:#9fb0d0;
+      --text:#e9efff;
+      --accent:#ffd54a;
+      --accent2:#6ee7ff;
+      --border:rgba(255,255,255,.12);
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius:18px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: radial-gradient(1200px 800px at 20% 10%, rgba(110,231,255,.18), transparent 55%),
+                  radial-gradient(1000px 700px at 90% 30%, rgba(255,213,74,.14), transparent 55%),
+                  var(--bg);
+      color:var(--text);
+      line-height:1.5;
+    }
+    a{color:inherit}
+    .wrap{max-width:1050px;margin:0 auto;padding:28px 18px 64px}
+    header{
+      display:flex;gap:18px;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;
+      padding:18px;border:1px solid var(--border);border-radius:var(--radius);background:rgba(17,26,46,.7);
+      box-shadow:var(--shadow);backdrop-filter: blur(8px);
+    }
+    .brand{display:flex;flex-direction:column;gap:6px;max-width:720px}
+    .badge{
+      display:inline-flex;align-items:center;gap:10px;
+      padding:6px 12px;border-radius:999px;border:1px solid var(--border);
+      width:fit-content;background:rgba(255,255,255,.05);
+      color:var(--muted);font-size:13px;
+    }
+    h1{margin:2px 0 0;font-size:30px;letter-spacing:.2px}
+    .sub{color:var(--muted);margin:0}
+    .cta{
+      display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:flex-end
+    }
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:8px;
+      padding:10px 14px;border-radius:14px;border:1px solid var(--border);
+      background:rgba(255,255,255,.06);text-decoration:none;
+      box-shadow: 0 8px 20px rgba(0,0,0,.25);
+      transition:.15s transform ease, .15s background ease;
+      font-weight:600;
+    }
+    .btn:hover{transform:translateY(-1px);background:rgba(255,255,255,.10)}
+    .btn.primary{background:rgba(255,213,74,.14);border-color:rgba(255,213,74,.35)}
+    .btn.primary:hover{background:rgba(255,213,74,.20)}
+    main{margin-top:18px;display:grid;gap:14px}
+    .grid{
+      display:grid;gap:14px;
+      grid-template-columns: 1.4fr .9fr;
+    }
+    @media (max-width: 860px){
+      .grid{grid-template-columns:1fr}
+      .cta{justify-content:flex-start}
+    }
+    .card{
+      background:rgba(17,26,46,.72);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      padding:16px;
+      box-shadow:var(--shadow);
+      backdrop-filter: blur(8px);
+    }
+    .card h2{margin:0 0 8px;font-size:18px}
+    .muted{color:var(--muted)}
+    .pillrow{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+    .pill{
+      padding:6px 10px;border-radius:999px;
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.05);
+      font-size:13px;color:var(--muted)
+    }
+    .steps{display:grid;gap:10px;margin-top:10px}
+    .step{
+      display:flex;gap:10px;align-items:flex-start;
+      padding:12px;border-radius:16px;border:1px solid var(--border);
+      background:rgba(255,255,255,.04)
+    }
+    .dot{
+      width:12px;height:12px;border-radius:50%;
+      background:var(--accent);margin-top:4px;flex:0 0 auto;
+      box-shadow:0 0 0 4px rgba(255,213,74,.12);
+    }
+    .dot.alt{background:var(--accent2);box-shadow:0 0 0 4px rgba(110,231,255,.12)}
+    ul{margin:8px 0 0 18px}
+    .media{
+      width:100%;aspect-ratio:16/9;border-radius:16px;border:1px dashed rgba(255,255,255,.22);
+      display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.03);
+      color:var(--muted);text-align:center;padding:14px
+    }
+    footer{
+      margin-top:18px;color:var(--muted);font-size:13px;
+      display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;align-items:center
+    }
+    .smalllinks{display:flex;gap:10px;flex-wrap:wrap}
+    .smalllinks a{color:var(--muted);text-decoration:none;border-bottom:1px dotted rgba(255,255,255,.25)}
+    .smalllinks a:hover{color:var(--text)}
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="badge">🟡 Think-a-bit • STEM Project • micro:bit</div>
+        <h1>Think-a-bit</h1>
+        <p class="sub">Αισθητήρες → Προγραμματισμός → Ανατροφοδότηση δεδομένων (Data feedback) για μια έξυπνη λύση στην τάξη/στο σχολείο.</p>
+        <div class="pillrow">
+          <span class="pill">micro:bit</span>
+          <span class="pill">Sensors</span>
+          <span class="pill">Programming</span>
+          <span class="pill">Data feedback</span>
+          <span class="pill">STEM / Computational Thinking</span>
+        </div>
+      </div>
+
+      <div class="cta">
+        <a class="btn primary" href="#demo">▶ Demo / Βίντεο</a>
+        <a class="btn" href="#how">⚙ Πώς λειτουργεί</a>
+        <a class="btn" href="#materials">📦 Υλικά & Κώδικας</a>
+        <a class="btn" href="#team">👥 Ομάδα</a>
+      </div>
+    </header>
+
+    <main class="grid">
+      <section class="card">
+        <h2>Σύντομη περιγραφή</h2>
+        <p class="muted">
+          Το <strong>Think-a-bit</strong> είναι ένα STEM project που αξιοποιεί το <strong>micro:bit</strong> για να συλλέγει δεδομένα από αισθητήρες,
+          να τα επεξεργάζεται με κώδικα και να δίνει άμεση, κατανοητή <em>ανατροφοδότηση</em> (π.χ. με ενδείξεις/ειδοποιήσεις/μετρήσεις).
+        </p>
+        <div class="steps" id="how">
+          <div class="step">
+            <span class="dot"></span>
+            <div>
+              <strong>1) Sensors (Αισθητήρες)</strong><br/>
+              <span class="muted">Μετράμε κάτι χρήσιμο (π.χ. θερμοκρασία/φως/κίνηση/θόρυβο/κλίση) και καταγράφουμε τιμές.</span>
+            </div>
+          </div>
+          <div class="step">
+            <span class="dot alt"></span>
+            <div>
+              <strong>2) Programming (Προγραμματισμός)</strong><br/>
+              <span class="muted">Γράφουμε κανόνες (if/else), φίλτρα, όρια και λογική απόφασης στο MakeCode / Python.</span>
+            </div>
+          </div>
+          <div class="step">
+            <span class="dot"></span>
+            <div>
+              <strong>3) Data feedback (Ανατροφοδότηση)</strong><br/>
+              <span class="muted">Εμφάνιση/ήχος/ειδοποίηση ή απλή οπτικοποίηση ώστε ο χρήστης να καταλαβαίνει και να δράσει.</span>
+            </div>
+          </div>
+        </div>
+
+        <h2 style="margin-top:14px;">Το πρόβλημα που λύνουμε</h2>
+        <ul class="muted">
+          <li><strong>Πρόβλημα:</strong> PASTE_ΠΕΡΙΓΡΑΦΗ_ΠΡΟΒΛΗΜΑΤΟΣ (1–2 προτάσεις)</li>
+          <li><strong>Λύση:</strong> PASTE_ΠΕΡΙΓΡΑΦΗ_ΛΥΣΗΣ (1–2 προτάσεις)</li>
+          <li><strong>Αντίκτυπος:</strong> PASTE_ΑΝΤΙΚΤΥΠΟΣ (πώς βοηθά μαθητές/σχολείο/κοινότητα)</li>
+        </ul>
+      </section>
+
+      <aside class="card" id="demo">
+        <h2>Demo / Βίντεο</h2>
+        <div class="media">
+          <div>
+            <div style="font-size:18px;font-weight:700;">Βάλε εδώ το βίντεο ή ένα GIF</div>
+            <div class="muted" style="margin-top:6px;">
+              Επιλογές: YouTube embed, Google Drive link ή 30″ mp4.
+            </div>
+          </div>
+        </div>
+        <p class="muted" style="margin-top:10px;">
+          🔗 Video link: <a href="PASTE_VIDEO_LINK" target="_blank" rel="noopener">PASTE_VIDEO_LINK</a>
+        </p>
+
+        <h2 style="margin-top:14px;" id="materials">Υλικά & Κώδικας</h2>
+        <ul class="muted">
+          <li>MakeCode share: <a href="PASTE_MAKECODE_LINK" target="_blank" rel="noopener">PASTE_MAKECODE_LINK</a></li>
+          <li>Αρχεία/φωτογραφίες (Drive): <a href="PASTE_DRIVE_FOLDER" target="_blank" rel="noopener">PASTE_DRIVE_FOLDER</a></li>
+          <li>Τεκμηρίωση (Padlet/Wakelet): <a href="PASTE_PADLET_OR_WAKELET" target="_blank" rel="noopener">PASTE_PADLET_OR_WAKELET</a></li>
+        </ul>
+
+        <h2 style="margin-top:14px;">Γρήγορα στοιχεία</h2>
+        <ul class="muted">
+          <li><strong>Ηλικίες/Τάξη:</strong> PASTE_ΤΑΞΗ</li>
+          <li><strong>Διάρκεια υλοποίησης:</strong> PASTE_ΔΙΑΡΚΕΙΑ</li>
+          <li><strong>Ρόλοι ομάδας:</strong> PASTE_ΡΟΛΟΙ (π.χ. hardware, code, data, παρουσίαση)</li>
+        </ul>
+      </aside>
+    </main>
+
+    <section class="card" id="team" style="margin-top:14px;">
+      <h2>Ομάδα & Σχολείο</h2>
+      <p class="muted">
+        <strong>Σχολείο:</strong> PASTE_ΣΧΟΛΕΙΟ<br/>
+        <strong>Ομάδα:</strong> PASTE_ΟΝΟΜΑ_ΟΜΑΔΑΣ<br/>
+        <strong>Εκπαιδευτικός/Υπεύθυνος:</strong> PASTE_ΟΝΟΜΑ_ΥΠΕΥΘΥΝΟΥ
+      </p>
+
+      <h2 style="margin-top:14px;">Feedback</h2>
+      <p class="muted">
+        Θες να αφήσουν σχόλιο/ψήφο; Βάλε Google Form:
+        <a href="PASTE_GOOGLE_FORM" target="_blank" rel="noopener">PASTE_GOOGLE_FORM</a>
+      </p>
+    </section>
+
+    <footer>
+      <div>© Think-a-bit • STEM project page</div>
+      <div class="smalllinks">
+        <a href="#how">Πώς λειτουργεί</a>
+        <a href="#demo">Demo</a>
+        <a href="#materials">Υλικά & Κώδικας</a>
+        <a href="#team">Ομάδα</a>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
